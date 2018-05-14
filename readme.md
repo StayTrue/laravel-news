@@ -7,6 +7,7 @@
 - [Vagrant](https://www.vagrantup.com/downloads.html)
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [NodeJS](https://nodejs.org)
+- [Composer](https://getcomposer.org/)
 
 ## Installation
 
