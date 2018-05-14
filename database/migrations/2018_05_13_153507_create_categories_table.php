@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration
         //Foreign key для категорий
         if (Schema::hasTable('news')) {
             Schema::table('news', function (Blueprint $table) {
-                $table->foreign('category_id')->references('id')->on('categories');
+                $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             });
         }
     }

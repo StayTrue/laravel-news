@@ -1,12 +1,12 @@
 @extends('layout')
-@section('title', 'Admin Panel')
+@section('title', 'Manage news')
 @section('action')
     <div class = "col-sm-6 col-3 pull-right justify-content-end">
         <a href = "/manager/new" class = "float-right btn btn-primary">Add news</a>
     </div>
 @endsection
 @section('breadcrumbs')
-    <li class="breadcrumb-item active" aria-current="page">Admin Panel</li>
+    <li class="breadcrumb-item active" aria-current="page">Manage news</li>
 @endsection
 @section('content')
     <div class = "container">
@@ -31,12 +31,15 @@
                             <td>{{ $news_item->name }}</td>
                             <td>{{ $news_item->category_name() }}</td>
                             <td>{{ $news_item->excerpt}}</td>
-                            <td><a href = "" class = "btn btn-info">Edit</a></td>
-                            <td><a href = "" class = "btn btn-danger">Delete</a></td>
+                            <td><a href = "/news/{{ $news_item->id }}/edit" class = "btn btn-info">Edit</a></td>
+                            <td><a href = "/news/{{ $news_item->id }}/delete" class = "btn btn-danger">Delete</a></td>
                         </tr>
                     @endforeach
                </tbody>
             </table>
+        </div>
+        <div class = "paginate">
+            {{ $news->links() }}
         </div>
     </div>
 @endsection
