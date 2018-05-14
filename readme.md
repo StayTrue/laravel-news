@@ -7,7 +7,7 @@
 - [Vagrant >= 2.1.1](https://www.vagrantup.com/downloads.html)
 - [VirtualBox >= 5.2](https://www.virtualbox.org/wiki/Downloads)
 - [NodeJS](https://nodejs.org)
-- [Composer](https://getcomposer.org/)
+- [Composer (PHP >= 7.1)](https://getcomposer.org/)
 
 ## Installation
 
