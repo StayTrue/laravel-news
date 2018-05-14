@@ -1,3 +1,5 @@
+## Laravel newsfeed
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 ## Requirements
@@ -8,44 +10,53 @@
 
 ## Installation
 
-1) Clone repository, go to project path and run command
-```shell
-vagrant up
-```
-2) Next install all dependencies by running
+1) Clone repository, go to project path and install all dependencies by running
 ```shell
 composer update
 ```
+2) Create env file 
+```shell
+cp .env.example .env
+```
 
+3) Make Homestead config files
 
-## Laravel Sponsors
+Using Windows
+```shell
+vendor\\bin\\homestead make
+```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+Using Linux \ MacOS
+```shell
+php vendor/bin/homestead make
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
+4) Next run vagrant by
+```shell
+vagrant up
+```
 
-## Contributing
+5) Log into vagrant ssh and go to project path by running
+```shell
+vagrant ssh
+cd code
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6) Make DB migrations and exit vagrant ssh
+```shell
+php artisan migrate
+exit
+```
 
-## Security Vulnerabilities
+7) Build the client side by running
+```shell
+npm install
+npm run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8) Add this line to your hosts file
+```shell
+192.168.10.10 news.test
+```
+9) Finally open http://news.test in your browser
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
