@@ -8,13 +8,15 @@ use App\Category;
 
 class NewsController extends Controller
 {
-    public function index($id = 0) {
-        if ($id > 0) {
-            $news = News::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(10);
-        } else {
-            $news = News::orderBy('created_at','desc')->paginate(10);
-        }
+    public function index() {
+        $news = News::orderBy('created_at','desc')->paginate(10);
         return view('news', compact('news'));
+    }
+
+    public function browse_by_category($id) {
+        $category = Category::findOrFail($id);
+        $news = News::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+        return view('browse-category', compact('news', 'category'));
     }
 
     public function admin() {

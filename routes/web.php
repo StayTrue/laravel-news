@@ -13,7 +13,7 @@
 Route::get('/', 'NewsController@index');
 Route::get('news/{id}', 'NewsController@view');
 Route::get('manager', 'NewsController@admin');
-Route::get('category/{id}', 'NewsController@index');
+Route::get('category/{id}', 'NewsController@browse_by_category');
 Route::get('news/{id}/edit', 'NewsController@edit');
 Route::post('news/{id}/update', 'NewsController@update');
 Route::get('news/{id}/delete', 'NewsController@delete');

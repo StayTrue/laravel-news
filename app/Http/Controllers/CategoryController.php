@@ -13,7 +13,7 @@ class CategoryController extends Controller
     }
 
     public function admin() {
-        $categories = Category::all();
+        $categories = Category::orderBy('id')->paginate(10);
         return view('admin-categories', compact('categories'));
     }
 
@@ -35,9 +35,6 @@ class CategoryController extends Controller
     public function delete($id) {
         $category = Category::findOrFail($id); 
         $news = News::where('category_id', $id);
-        foreach($news as $news_item) {
-            $news_item->delete();
-        }
         $category->delete();
         return redirect('/manager/categories')->with('status', 'Category was deleted successfuly');    
     }

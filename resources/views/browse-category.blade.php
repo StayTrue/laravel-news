@@ -1,7 +1,8 @@
 @extends('layout')
-@section('title', 'News')
+@section('title', $category->name)
 @section('breadcrumbs')
-    <li class="breadcrumb-item active" aria-current="page">News</li>
+    <li class="breadcrumb-item"><a href = "/">News</a></li>
+    <li class = "breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
 @endsection
 @section('content')
     <div class = "container">

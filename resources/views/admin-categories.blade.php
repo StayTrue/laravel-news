@@ -34,5 +34,8 @@
                 </tbody>
             </table>
         </div>
+        <div class = "paginate">
+            {{ $categories->links() }}
+        </div>
     </div>
 @endsection
