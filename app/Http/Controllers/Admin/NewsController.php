@@ -1,27 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\News;
-use App\Category;
+use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {
     public function index() {
         $news = News::orderBy('created_at','desc')->paginate(10);
-        return view('news', compact('news'));
+        return view('admin', compact('news'));
     }
 
-    public function browse_by_category($id) {
-        $category = Category::findOrFail($id);
-        $news = News::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(10);
-        return view('browse-category', compact('news', 'category'));
+    public function new() {
+        $categories = Category::orderBy('id')->get();
+        return view('add-news', compact('categories'));
     }
 
-    public function view($id) {
+    public function edit($id) {
         $news = News::findOrFail($id);
-        return view('view-news', compact('news'));
+        $categories = Category::orderBy('id')->get();
+        return view('edit-news', compact('news', 'categories'));
     }
 
     public function update(Request $request, $id) {
